@@ -5,7 +5,8 @@ definePageMeta({
 </script>
 <template>
   <div>
-    <NuxtLayout name="custom">
+    <NuxtLayout name="default">
+      <template #header>header</template>
       <h1>Main Page</h1>
     </NuxtLayout>
   </div>
