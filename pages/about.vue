@@ -1,16 +1,6 @@
-<script setup lang="ts">
-function enableCustomLayout() {
-  setPageLayout("custom");
-}
-definePageMeta({
-  layout: false,
-});
-</script>
-
+<script setup></script>
 <template>
   <div>
-    <button @click="enableCustomLayout">Update layout</button>
+    <h1>About Page</h1>
   </div>
 </template>
-
-<style scoped></style>
