@@ -1,10 +1,4 @@
-<script setup>
-// const show = ref(false);
-
-// const handleClick = () => {
-//   show.value = true;
-// };
-</script>
+<script setup></script>
 <template>
   <div>
     <h1>Main Page</h1>
