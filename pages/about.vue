@@ -1,4 +1,7 @@
 <script setup lang="ts">
+function enableCustomLayout() {
+  setPageLayout("custom");
+}
 definePageMeta({
   layout: false,
 });
@@ -6,9 +9,7 @@ definePageMeta({
 
 <template>
   <div>
-    <NuxtLayout name="default">
-      <h1>About Page</h1>
-    </NuxtLayout>
+    <button @click="enableCustomLayout">Update layout</button>
   </div>
 </template>
 
