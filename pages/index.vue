@@ -2,6 +2,7 @@
 import { useCounter } from "~/composables/useCounter";
 
 const { count, inc, dec } = useCounter(0);
+const { $hello } = useNuxtApp();
 </script>
 
 <template>
@@ -10,6 +11,7 @@ const { count, inc, dec } = useCounter(0);
       <img src="/icon.png" alt="Nuxt3 Icon" />
     </div>
     <h1>Main Page</h1>
+    <h2>{{ $hello("World") }}</h2>
     <div>
       <p>Count: {{ count }}</p>
     </div>
