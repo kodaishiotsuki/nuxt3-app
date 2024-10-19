@@ -1,13 +1,12 @@
 <script setup>
-definePageMeta({
-  layout: false,
-});
+// const show = ref(false);
+
+// const handleClick = () => {
+//   show.value = true;
+// };
 </script>
 <template>
   <div>
-    <NuxtLayout name="default">
-      <template #header>header</template>
-      <h1>Main Page</h1>
-    </NuxtLayout>
+    <h1>Main Page</h1>
   </div>
 </template>
