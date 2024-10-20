@@ -1,28 +1,30 @@
 <script setup>
-// useFetch
-// const {
-//   data: posts,
-//   error,
-//   refresh,
-// } = await useFetch("https://jsonplaceholder.typicode.com/posts/");
+const task = ref("");
+const { data: tasks, refresh } = useFetch("/api/task"); // refreshを取得
 
-// useAsyncData
-const {
-  data: posts,
-  error,
-  refresh,
-} = await useAsyncData("posts", () => {
-  // console.log("fetch posts");
-  return $fetch("https://jsonplaceholder.typicode.com/posts/");
-});
+const addTask = async () => {
+  await $fetch("/api/task", {
+    method: "post",
+    body: { task: task.value },
+  });
+  await refresh(); // データを再取得してリフレッシュ
+  task.value = "";
+};
 </script>
+
 <template>
   <div>
-    <h1 className="font-extrabold text-xl">Posts一覧</h1>
-    <button @click="refresh()">再取得</button>
-    <p v-if="error">{{ error }}</p>
+    <h1>Main Page</h1>
     <ul>
-      <li v-for="post in posts" :key="post.id">{{ post.title }}</li>
+      <li v-for="task in tasks" :key="task.id">{{ task.task }}</li>
     </ul>
+    <form @submit.prevent="addTask">
+      <div>
+        <input v-model="task" />
+      </div>
+      <div>
+        <button type="submit">タスクを登録</button>
+      </div>
+    </form>
   </div>
 </template>
