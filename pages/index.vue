@@ -1,9 +1,20 @@
 <script setup>
+// useFetch
+// const {
+//   data: posts,
+//   error,
+//   refresh,
+// } = await useFetch("https://jsonplaceholder.typicode.com/posts/");
+
+// useAsyncData
 const {
   data: posts,
   error,
   refresh,
-} = await useFetch("https://jsonplaceholder.typicode.com/posts/");
+} = await useAsyncData("posts", () => {
+  // console.log("fetch posts");
+  return $fetch("https://jsonplaceholder.typicode.com/posts/");
+});
 </script>
 <template>
   <div>
