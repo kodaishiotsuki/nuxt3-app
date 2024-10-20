@@ -18,7 +18,7 @@ const {
 </script>
 <template>
   <div>
-    <h1>Posts一覧</h1>
+    <h1 className="font-extrabold text-xl">Posts一覧</h1>
     <button @click="refresh()">再取得</button>
     <p v-if="error">{{ error }}</p>
     <ul>
