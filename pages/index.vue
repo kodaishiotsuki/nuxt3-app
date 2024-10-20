@@ -1,23 +1,17 @@
 <script setup>
-import { useCounter } from "~/composables/useCounter";
-
-const { count, inc, dec } = useCounter(0);
-const { $hello } = useNuxtApp();
+const {
+  data: posts,
+  error,
+  refresh,
+} = await useFetch("https://jsonplaceholder.typicode.com/posts/");
 </script>
-
 <template>
   <div>
-    <div>
-      <img src="/icon.png" alt="Nuxt3 Icon" />
-    </div>
-    <h1>Main Page</h1>
-    <h2>{{ $hello("World") }}</h2>
-    <div>
-      <p>Count: {{ count }}</p>
-    </div>
-    <div>
-      <button @click="() => inc()">increase</button>
-      <button @click="() => dec()">decrease</button>
-    </div>
+    <h1>Posts一覧</h1>
+    <button @click="refresh()">再取得</button>
+    <p v-if="error">{{ error }}</p>
+    <ul>
+      <li v-for="post in posts" :key="post.id">{{ post.title }}</li>
+    </ul>
   </div>
 </template>
