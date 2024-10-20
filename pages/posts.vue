@@ -1,8 +1,19 @@
 <script setup>
-const { data: posts, error } = await useAsyncData(() =>
-  $fetch("https://jsonplaceholder.typicode.com/posts/")
-);
-console.log(useNuxtApp().payload.data);
+// const { data: posts, error } = await useAsyncData(() =>
+//   $fetch("https://jsonplaceholder.typicode.com/posts/")
+// );
+// console.log(useNuxtApp().payload.data);
+
+// //$fetch関数
+// const posts = ref([]);
+// const data = await $fetch("https://jsonplaceholder.typicode.com/posts/");
+// posts.value = data;
+
+//fetch関数
+const posts = ref([]);
+const response = await fetch("https://jsonplaceholder.typicode.com/posts/");
+const data = await response.json();
+posts.value = data;
 </script>
 <template>
   <div>
